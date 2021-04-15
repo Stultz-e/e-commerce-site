@@ -18,7 +18,6 @@ const Header = () => (
                 CONTACT
             </Link>
         </div>
-
     </div>
 )
 
