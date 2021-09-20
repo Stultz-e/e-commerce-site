@@ -23,15 +23,13 @@ class App extends React.Component {
 
         userRef.onSnapshot((snapShot) => {
           setCurrentUser({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data(),
-            },
+            id: snapShot.id,
+            ...snapShot.data(),
           });
-          console.log(this.state);
         });
       }
-      setCurrentUser({ userAuth });
+
+      setCurrentUser(userAuth);
     });
   }
 
@@ -71,4 +69,4 @@ const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
